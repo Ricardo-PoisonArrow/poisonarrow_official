@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoisonArrow DJ | Official Site</title>
+    <style>
+        /* Smooth Scrolling and Core Setup */
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        /* Navigation Bar */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-left: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: #39ff14; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), #111;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 6.5rem);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #00f2fe;
+            margin: 10px 0 30px;
+            letter-spacing: 6px;
+        }
+
+        .hero .btn {
+            background: #ff00de;
+            color: #fff;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .hero .btn:hover { background: #39ff14; color: #000; }
+
+        /* Genre Grid */
+        .genre-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .genre-card {
+            background: #0f0f0f;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #222;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .genre-card:hover {
+            transform: translateY(-8px);
+            border-color: #39ff14;
+            box-shadow: 0 10px 30px rgba(57, 255, 20, 0.1);
+        }
+
+        .genre-card h3 {
+            margin: 10px 0;
+            color: #ff00de;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .bpm-tag {
+            background: #1a1a1a;
+            color: #39ff14;
+            display: inline-block;
+            padding: 2px 12px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            border: 1px solid #333;
+        }
+
+        /* Layout Containers */
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: auto;
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+        }
+        
+        .section-title span { color: #ff00de; }
+
+        .content-box {
+            background: #0c0c0c;
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #1a1a1a;
+        }
+
+        .twitch-embed {
+            width: 100%;
+            height: 550px;
+            border-radius: 8px;
+            border: 1px solid #222;
+        }
+
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 60px;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="Hi_Res_Logo.png" alt="PoisonArrow DJ Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#genres">The Sound</a></li>
+                <li><a href="#music">Music</a></li>
+                <li><a href="#live">Live</a></li>
+                <li><a href="#contact">Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>POISONARROW</h1>
+        <p>SONIC DESTRUCTION</p>
+        <a href="#live" class="btn">Watch Live Now</a>
+    </section>
+
+    <div class="container">
+        
+        <section id="genres">
+            <h2 class="section-title">The <span>Sound</span></h2>
+            <div class="genre-grid">
+                
+                <div class="genre-card">
+                    <span class="bpm-tag">128 - 135 BPM</span>
+                    <h3>Techno</h3>
+                    <p>Driving industrial rhythms and dark hypnotic atmospheres.</p>
+                </div>
+
+                <div class="genre-card">
+                    <span class="bpm-tag">138 - 145 BPM</span>
+                    <h3>Psytrance</h3>
+                    <p>Pulsating basslines and psychedelic melodic structures.</p>
+                </div>
+
+                <div class="genre-card">
+                    <span class="bpm-tag">140 - 155 BPM</span>
+                    <h3>Jumpstyle</h3>
+                    <p>Bouncy kicks and energetic, syncopated melodies.</p>
+                </div>
+
+                <div class="genre-card">
+                    <span class="bpm-tag">150 - 170 BPM</span>
+                    <h3>Millenium Hardcore</h3>
+                    <p>Classic melodies and heavy kicks from the golden era.</p>
+                </div>
+
+                <div class="genre-card">
+                    <span class="bpm-tag">170 - 175 BPM</span>
+                    <h3>Drum And Bass</h3>
+                    <p>High-speed breakbeats and heavy sub-bass weight.</p>
+                </div>
+
+                <div class="genre-card">
+                    <span class="bpm-tag">172 - 178 BPM</span>
+                    <h3>Neuro</h3>
+                    <p>Complex, technical sound design and aggressive basslines.</p>
+                </div>
+
+                <div class="genre-card">
+                    <span class="bpm-tag">170 - 190 BPM</span>
+                    <h3>Hardcore</h3>
+                    <p>The standard of high-energy power and distorted basslines.</p>
+                </div>
+
+                <div class="genre-card">
+                    <span class="bpm-tag">180 - 210 BPM</span>
+                    <h3>Frenchcore</h3>
+                    <p>Fast-paced kicks with melodic, bouncy orchestration.</p>
+                </div>
+
+                <div class="genre-card">
+                    <span class="bpm-tag">200 - 250 BPM</span>
+                    <h3>Uptempo</h3>
+                    <p>Aggressive, high-speed energy for maximum impact.</p>
+                </div>
+
+                <div class="genre-card">
+                    <span class="bpm-tag">240+ BPM</span>
+                    <h3>Early Terror</h3>
+                    <p>Raw, relentless, and experimental high-speed chaos.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About <span>PoisonArrow</span></h2>
+            <div class="content-box">
+                <p>PoisonArrow is a multi-genre force, delivering everything from hypnotic Techno to the experimental chaos of Early Terror. By blending technical Drum & Bass with high-speed Hardcore, every set is curated to push the limits of the dancefloor and provide a unique sonic journey.</p>
+            </div>
+        </section>
+
+        <section id="music">
+            <h2 class="section-title">Latest <span>Mixes</span></h2>
+            <div class="content-box" style="text-align:center;">
+                <p>Blast the latest sets on SoundCloud:</p>
+                <div style="color: #666; border: 2px dashed #333; padding: 40px;">SoundCloud Player Placeholder</div>
+            </div>
+        </section>
+
+        <section id="live">
+            <h2 class="section-title">Watch <span>Live</span></h2>
+            <div class="content-box">
+                <iframe
+                    class="twitch-embed"
+                    src="https://player.twitch.tv/?channel=poisonarrow_dj&parent=localhost"
+                    frameborder="0"
+                    allowfullscreen="true"
+                    scrolling="no">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Booking <span>& Contact</span></h2>
+            <div class="content-box" style="text-align: center;">
+                <p>For bookings and collaborations:</p>
+                <h3 style="color:#39ff14; font-size: 1.8rem;">bookings@poisonarrowdj.com</h3>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PoisonArrow DJ. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

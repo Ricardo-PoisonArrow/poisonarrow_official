@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crews | PoisonArrow Network</title>
+    <style>
+        /* CORE SETUP */
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0; padding: 0;
+            background-color: #050505; color: #ffffff;
+            line-height: 1.6; overflow-x: hidden;
+        }
+
+        /* TOXIC GLOW SCROLLBAR */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #39ff14; border-radius: 10px; box-shadow: 0 0 10px #39ff14; }
+
+        /* HEADER */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 15px 50px;
+            position: fixed; width: 100%; top: 0;
+            z-index: 1000; display: flex;
+            justify-content: space-between; align-items: center;
+            box-sizing: border-box; border-bottom: 1px solid #222;
+        }
+        .logo-text { font-weight: 900; letter-spacing: 2px; color: #ff00de; text-decoration: none; font-size: 1.2rem; text-transform: uppercase; }
+        .logo-text span { color: #39ff14; }
+        nav a { text-decoration: none; color: #fff; font-weight: 600; text-transform: uppercase; font-size: 11px; margin-left: 20px; transition: 0.3s; }
+        nav a:hover { color: #39ff14; }
+
+        /* NEON PULSE & RAINBOW ANIMATIONS */
+        @keyframes neonPulse {
+            0% { filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.2)) brightness(100%); }
+            50% { filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.6)) brightness(125%); }
+            100% { filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.2)) brightness(100%); }
+        }
+
+        @keyframes rainbowGlow {
+            0% { text-shadow: 0 0 10px #ff0000; }
+            20% { text-shadow: 0 0 10px #ffea00; }
+            40% { text-shadow: 0 0 10px #00ff00; }
+            60% { text-shadow: 0 0 10px #00f2fe; }
+            80% { text-shadow: 0 0 10px #ff00de; }
+            100% { text-shadow: 0 0 10px #ff0000; }
+        }
+
+        .pulse-logo { animation: neonPulse 4s ease-in-out infinite; }
+        .rainbow-title { animation: rainbowGlow 6s linear infinite; color: #fff; }
+
+        /* HERO */
+        .crew-hero {
+            height: 45vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), #111;
+            border-bottom: 2px solid #39ff14; margin-top: 60px;
+        }
+        .crew-hero h1 { font-size: clamp(3rem, 8vw, 5rem); margin: 0; text-transform: uppercase; letter-spacing: 10px; }
+        .hero-tag { color: #00f2fe; letter-spacing: 4px; font-weight: bold; margin-top: 10px; }
+
+        /* CONTAINER */
+        .container { width: 92%; max-width: 1400px; margin: auto; padding: 60px 0; }
+
+        /* TEAM BOX SECTION */
+        .team-box {
+            background: #0c0c0c;
+            border: 1px solid #1a1a1a;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 100px;
+            transition: 0.3s;
+        }
+        .team-box:hover { border-color: #333; }
+
+        /* PROFILE SPLIT (IMAGE + TEXT) */
+        .team-profile {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .team-image-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: visible;
+        }
+
+        .team-info h2 { font-size: 2.8rem; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 2px; }
+        .team-info p { color: #aaa; font-size: 1.05rem; margin-bottom: 20px; }
+        
+        .member-list {
+            display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid #222; padding-top: 20px;
+        }
+
+        /* UPDATED MEMBER TAGS FOR HYPERLINKS */
+        .member-tag {
+            background: #1a1a1a; 
+            color: #39ff14; 
+            padding: 4px 12px; 
+            border-radius: 4px; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            border: 1px solid #333; 
+            transition: 0.3s;
+            text-decoration: none; /* Removes underline from links */
+            display: inline-block;
+        }
+
+        .member-tag:hover { 
+            border-color: #ff00de; 
+            color: #ffffff; 
+            background: #222;
+            box-shadow: 0 0 10px rgba(255, 0, 222, 0.5); /* Glow effect on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        /* HORIZONTAL CAROUSEL */
+        .carousel-title { font-size: 0.8rem; letter-spacing: 3px; color: #555; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        
+        .video-carousel {
+            display: flex; overflow-x: auto; gap: 20px;
+            padding-bottom: 20px; scroll-snap-type: x mandatory;
+        }
+        .video-card { flex: 0 0 420px; scroll-snap-align: start; background: #050505; border: 1px solid #222; border-radius: 10px; overflow: hidden; transition: 0.3s; }
+        .video-card:hover { 
+            border-color: #39ff14; 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 30px rgba(57, 255, 20, 0.1);
+        }
+        
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        .video-info { padding: 15px; text-align: center; background: #0c0c0c; }
+        .video-info h4 { margin: 0; color: #fff; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+        footer { background: #000; text-align: center; padding: 60px; border-top: 1px solid #222; }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 1000px) {
+            .team-profile { grid-template-columns: 1fr; }
+            .team-info h2 { font-size: 2.2rem; }
+            .video-card { flex: 0 0 85%; }
+            header { padding: 15px 20px; }
+            .team-image-container img { margin-left: 0 !important; width: 100% !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-text">PoisonArrow<span>_NET</span></a>
+        <nav>
+            <a href="index.html">← Back Home</a>
+            <a href="#after-party-crew">Afterparty Crew</a>
+        </nav>
+    </header>
+
+    <section class="crew-hero">
+        <h1>THE <span>CREWS</span></h1>
+        <div class="hero-tag">UNITED IN CHAOS</div>
+    </section>
+
+    <div class="container">
+        
+        <section class="team-box" id="after-party-crew">
+            <div class="team-profile">
+                <div class="team-image-container">
+                    <img src="APC_WIDE.png" alt="Afterparty Crew Logo" class="pulse-logo"
+                         style="width: 120%; height: auto; object-fit: contain; margin-left: -45px; display: block;">
+                </div>
+                <div class="team-info">
+                    <h2 class="rainbow-title">Afterparty Crew</h2>
+                    <p>The foundation of the network. Afterparty Crew specializes in the heritage of Millenium Hardcore, bringing back the gold-standard kicks and melodies that defined an era, but reimagined for the modern stage.</p>
+                    <div class="member-list">
+                        <a href="#" class="member-tag">ChilledDvs</a>
+                        <a href="#" class="member-tag">poisonarrow_dj</a>
+                        <a href="#" class="member-tag">BackupIboh</a>
+                        <a href="#" class="member-tag">TotalRage_</a>
+                        <a href="#" class="member-tag">Metawaves_dj</a>
+                        <a href="#" class="member-tag">PlethoTechno</a>
+                        <a href="#" class="member-tag">DJ_Khrysalis</a>
+                        <a href="#" class="member-tag">Mr.M0nster</a>
+                        <a href="#" class="member-tag">Polymathic</a>
+                        <a href="#" class="member-tag">Sora_dnb</a>
+                        <a href="#" class="member-tag">Thiieuu</a>
+                        <a href="#" class="member-tag">BlzMac</a>
+                        <a href="#" class="member-tag">FouriaDnB</a>
+                        <a href="#" class="member-tag">IntenseComplex</a>
+                        <a href="#" class="member-tag">FutureSounds</a>
+                        <a href="#" class="member-tag">DonaldDucksPants</a>
+                        <a href="#" class="member-tag">myalteredsoul</a>
+                        <a href="#" class="member-tag">Gothicforesttroll</a>
+                        <a href="#" class="member-tag">Shinobigeisha</a>
+                        <a href="#" class="member-tag">Crazydutch00</a>
+                        <a href="#" class="member-tag">Frequency_Modulator</a>
+                        <a href="#" class="member-tag">MatthewMJB</a>
+                        <a href="#" class="member-tag">RayyDJ</a>
+                        <a href="#" class="member-tag">Radam_WA</a>
+                        <a href="#" class="member-tag">kevindoo</a>
+                        <a href="#" class="member-tag">thelevia</a>
+                        <a href="#" class="member-tag">dj_acidion</a>
+                        <a href="#" class="member-tag">Thannatar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <span class="carousel-title">Recent Performances</span>
+            <div class="video-carousel">
+                <div class="video-card">
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="video-info"><h4>Mainstage Takeover 2026</h4></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="video-info"><h4>Vinyl Archive Mix</h4></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p style="color: #444;">&copy; 2026 PoisonArrow Network. Designed for the Underground.</p>
+    </footer>
+
+</body>
+</html>
